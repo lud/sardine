@@ -10,27 +10,31 @@
 #
 # 16 Terminal Colors
 # -- ---------------
+#  0 black
 #  1 red
 #  2 green
 #  3 yellow
 #  4 blue
 #  5 magenta
 #  6 cyan
-# default white
+#  7 white
+#  8 bright black
+#  9 bright red
+# 10 bright green
+# 11 bright yellow
+# 12 bright blue
+# 13 bright magenta
+# 14 bright cyan
+# 15 bright white
 #
 
 
 _prompt_sorin_vimode() {
   case ${KEYMAP} in
-    vicmd) print -n ' %F{6}❮❮' ;;
-    *) print -n ' %F{6}❯❯' ;;
+    vicmd) print -n ' %F{11}❮❮❮' ;;
+    *) print -n ' %F{14}❯❯❯' ;;
   esac
 }
-
-# vicmd) print -n ' %F{6}❮%F{6}❮%F{6}❮' ;;
-#     *) print -n ' %F{6}❯%F{6}❯%F{6}❯' ;;
-
-
 
 _prompt_sorin_keymap_select() {
   zle reset-prompt
@@ -72,6 +76,6 @@ fi
 
 # Define prompts.
 
-PS1='${SSH_TTY:+"%B%F{1}%n%f@%b%F{3}%m "}%B%F{4}$(prompt-pwd)%(!. %F{1}#.)${VIRTUAL_ENV:+"%F{3}(${VIRTUAL_ENV:t})"}%(?:: %F{1}✘ %?)%B${VIM:+" %F{6}V"}${(e)git_info[status]}%f%b$(_prompt_sorin_vimode)%f%b '
+PS1='${SSH_TTY:+"%B%F{1}%n%f@%b%F{3}%m "}%B%F{7}$(prompt-pwd)%(!. %F{1}#.)${VIRTUAL_ENV:+"%F{3}(${VIRTUAL_ENV:t})"}%(?:: %F{1}✘ %?)%B${VIM:+" %F{6}V"}${(e)git_info[status]}%f%b$(_prompt_sorin_vimode)%f%b '
 
 SPROMPT='zsh: correct %F{1}%R%f to %F{2}%r%f [nyae]? '
